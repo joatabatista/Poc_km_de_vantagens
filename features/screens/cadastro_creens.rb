@@ -67,7 +67,7 @@ class Cadastro <Appium::Driver
   end
 
   def scroll_juh
-    Appium::TouchAction.new.swipe(start_x: 0.5, start_y:10.0, duration:600).perform
+    4.times{ Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.7, end_x: 0.7, end_y: 0.1, duration: 600).perform}
     #find_element(name: "Cayman Islands").click
     #Appium::TouchAction.new.swipe(start_x: 144, start_y: 1634, end_x: 144, end_y: 149).perform
     #Appium::TouchAction.new.swipe(start_x: 144, start_y: 149, end_x: 144, end_y: 1634).perform
