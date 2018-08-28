@@ -38,20 +38,21 @@ class Cadastro <Appium::Driver
   end
 
 
-  def preencher_cadastro
-    self.campo_cpf
-    self.campo_data_nascimento
-    self.campo_primeiro_nome
+  def preencher_cadastro(cpf, nascimento, nome, sobrenome, sexo, email, telefone)
+    self.campo_cpf(cpf)
+    self.campo_data_nascimento(nascimento)
+    self.campo_primeiro_nome(nome)
     self.scroll_natali
-    self.campo_sobrenome
-    self.campo_sexo
-    self.campo_email
+    self.campo_sobrenome(sobrenome)
+    self.campo_sexo(sexo)
+    self.campo_email(email)
     self.scroll_natali
-    self.campo_repita_email
-    self.campo_senha
-    self.campo_repita_senha
+    self.campo_repita_email(email)
+    self.campo_senha(ENV['SENHA'])
+    self.campo_repita_senha(ENV['SENHA'])
     self.scroll_natali
-    self.campo_telefone
+    self.campo_telefone(telefone)
+    self.scroll_natali
   end
 
   def scroll_para_cima
@@ -62,27 +63,27 @@ class Cadastro <Appium::Driver
     2.times{ Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.7, end_x: 0.6, end_y: 0.3, duration: 900).perform}
   end
 
-  def campo_cpf
+  def campo_cpf(cpf)
     find_element(:id, @preencher_cpf).clear
-    find_element(:id, @preencher_cpf).send_keys('35996024845')
+    find_element(:id, @preencher_cpf).send_keys(cpf)
     hide_keyboard
   end
 
-  def campo_data_nascimento
+  def campo_data_nascimento(nascimento)
     find_element(:id, @preencher_data_de_nascimento).clear
-    find_element(:id, @preencher_data_de_nascimento).send_keys('23031988')
+    find_element(:id, @preencher_data_de_nascimento).send_keys(nascimento)
     hide_keyboard
   end
 
-  def campo_primeiro_nome
+  def campo_primeiro_nome(nome)
     find_element(:id, @preencher_primeiro_nome).clear
-    find_element(:id, @preencher_primeiro_nome).send_keys('Joata')
+    find_element(:id, @preencher_primeiro_nome).send_keys(nome)
     hide_keyboard
   end
 
-  def campo_sobrenome
+  def campo_sobrenome(sobrenome)
     find_element(:id, @preencher_sobrenome).clear
-    find_element(:id, @preencher_sobrenome).send_keys('Batista')
+    find_element(:id, @preencher_sobrenome).send_keys(sobrenome)
     hide_keyboard
   end
 
@@ -91,33 +92,33 @@ class Cadastro <Appium::Driver
     ele_index('android.widget.TextView', rand(1..2)).click
   end
 
-  def campo_email
+  def campo_email(email)
     find_element(:id, @preencher_email).clear
-    find_element(:id, @preencher_email).send_keys('joatabatista@gmail.com')
+    find_element(:id, @preencher_email).send_keys(email)
     hide_keyboard
   end
 
-  def campo_repita_email
+  def campo_repita_email(email)
     find_element(:id, @preencher_repita_email).clear
-    find_element(:id, @preencher_repita_email).send_keys('joatabatista@gmail.com')
+    find_element(:id, @preencher_repita_email).send_keys(email)
     hide_keyboard
   end
 
   def campo_senha
-    find_element(:id, @preencher_repita_email).clear
-    find_element(:id, @preencher_senha).send_keys('123456789')
+    find_element(:id, @preencher_senha).clear
+    find_element(:id, @preencher_senha).send_keys ENV['SENHA']
     hide_keyboard
   end
 
   def campo_repita_senha
-    find_element(:id, @preencher_repita_email).clear
-    find_element(:id, @preencher_repita_senha).send_keys('123456789')
+    find_element(:id, @preencher_repita_senha).clear
+    find_element(:id, @preencher_repita_senha).send_keys ENV['SENHA']
     hide_keyboard
   end
 
-  def campo_telefone
-    find_element(:id, @preencher_repita_email).clear
-    find_element(:id, @preencher_telefone).send_keys('994356869')
+  def campo_telefone(telefone)
+    find_element(:id, @preencher_telefone).clear
+    find_element(:id, @preencher_telefone).send_keys(telefone)
     hide_keyboard
   end
 

@@ -5,6 +5,9 @@ require 'faker'
 require 'cpf_faker'
 require 'cucumber'
 
+# configuração YAML
+$lista_cadastro = YAML.load_file('./date/massa.yml')
+
 #METODO DO APPIUM PARA INICIAR
 def caps
     {
