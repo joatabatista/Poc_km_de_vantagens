@@ -9,15 +9,15 @@ Quando("preencho os campos correpondentes na tela de cadastro") do
   @nascimento = $lista_cadastro[posicao]['nascimento']
   @nome = $lista_cadastro[posicao]['nome']
   @sobrenome = $lista_cadastro[posicao]['sobrenome']
-  @nascimento = $lista_cadastro[posicao]['sexo']
+  @sexo = $lista_cadastro[posicao]['sexo']
   @email = $lista_cadastro[posicao]['email']
-  @email = $lista_cadastro[posicao]['email']
+  @repita_email = $lista_cadastro[posicao]['repita_email']
   @telefone = $lista_cadastro[posicao]['telefone']
   @estado = $lista_cadastro[posicao]['estado']
   @cidade = $lista_cadastro[posicao]['cidade']
   @bairro = $lista_cadastro[posicao]['bairro']
   @posto = $lista_cadastro[posicao]['posto']
-  @cadastro.preencher_cadastro(@cpf, @nascimento, @nome, @sobrenome, @nascimento, @email, @email, @telefone, @estado, @cidade, @bairro, @posto)
+  @cadastro.preencher_cadastro(@cpf, @nascimento, @nome, @sobrenome, @nascimento, @email, @repita_email, @telefone, @estado, @cidade, @bairro, @posto)
 end
 
 Então("realizo o cadastro com sucesso") do

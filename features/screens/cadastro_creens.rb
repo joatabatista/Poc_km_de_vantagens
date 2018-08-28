@@ -38,7 +38,7 @@ class Cadastro <Appium::Driver
   end
 
 
-  def preencher_cadastro(cpf, nascimento, nome, sobrenome, sexo, email, telefone)
+  def preencher_cadastro(cpf, nascimento, nome, sobrenome, sexo, email, repita_email, telefone, estado, cidade, bairro, posto)
     self.campo_cpf(cpf)
     self.campo_data_nascimento(nascimento)
     self.campo_primeiro_nome(nome)
@@ -47,12 +47,16 @@ class Cadastro <Appium::Driver
     self.campo_sexo(sexo)
     self.campo_email(email)
     self.scroll_natali
-    self.campo_repita_email(email)
+    self.campo_repita_email(repita_email)
     self.campo_senha(ENV['SENHA'])
     self.campo_repita_senha(ENV['SENHA'])
     self.scroll_natali
     self.campo_telefone(telefone)
     self.scroll_natali
+    self.campo_estado(estado)
+    self.campo_cidade(cidade)
+    self.campo_bairro(bairro)
+    self.campo_posto_favorito(posto)
   end
 
   def scroll_para_cima
